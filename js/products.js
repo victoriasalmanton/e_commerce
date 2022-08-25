@@ -31,9 +31,11 @@ function showProductsList({ products }) {
     htmlContentToAppend;
 }
 
-// declaras la funcion que luego va a llamar el listener.
+/* vamos a buscar la catid especifica que estableces en index al local storage y luego haces el llamado al json */
 function onContentLoaded(e) {
-  getJSONData(PRODUCTS_URL + "101" + EXT_TYPE).then(function (resultObj) {
+  const catId = localStorage.getItem("catID");
+
+  getJSONData(PRODUCTS_URL + catId + EXT_TYPE).then(function (resultObj) {
     if (resultObj.status === "ok") {
       showProductsList(resultObj.data);
     }
@@ -43,5 +45,3 @@ function onContentLoaded(e) {
 // e de evento. cuando pase un evento ejecuta esta funcion. dom content loaded cuando el evento termine de cargar
 // add event listener toma or parametros el evento y la referencia de la funcion que va a llamar cuando el evento ocurra. No le pones parentesis.
 document.addEventListener("DOMContentLoaded", onContentLoaded);
-
-// 1) listener el evento es que se cargue el dom. 2) vas a buscar la info al json 3) llamas a funcion para procesarla.

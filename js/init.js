@@ -41,3 +41,22 @@ let getJSONData = function (url) {
       return result;
     });
 };
+
+const user = localStorage.getItem("user");
+
+if (!user) {
+  location.href = "login.html";
+}
+
+/* si no tiene user va al login y deshacemos el cambio de nombre de archivos */
+
+const item = document.querySelector("#navbarNav .nav-item:last-child");
+item.innerHTML = `<span class="nav-link">${user}</span>`;
+
+/**
+ * queremos llegar al elemento del menu donde iria el correo pero no tenemos id no podemos usar getElementById
+ * no queremos editar todos los html
+ * Usamos querySelector que permite usar un selector css para llegar a un elemento.
+ * span para agregarle estilo igual a los otros enlaces
+ * innerHTML para cambiar el contenido y mostrar en pantalla.
+ */
