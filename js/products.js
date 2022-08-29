@@ -17,10 +17,14 @@ function sortProducts(criteria, array) {
   return result;
 }
 
-//función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
-// con {products} filtro a que solo me agarre solo el parametro products dentro del objeto
+/* 
+* el for toma currentProductsArray que es la categoria productos del resultado del json va mostrando 
+en pantalla los productos segun la condicion necesaria
+*evalua las condiciones de que minPrice sea undefinded o que el costos del producto mayor al minPince.
+Lo mismo para max price, que costo sea menos o igual al que el usuario selecciona. 
+*Si una no se cumple ya la condicion no se ejecuta.
+*/
 function showProductsList() {
-  // content to append tiene que ser let porque varia
   let htmlContentToAppend = "";
 
   for (let i = 0; i < currentProductsArray.length; i++) {
@@ -56,13 +60,17 @@ function showProductsList() {
     htmlContentToAppend;
 }
 
+/* * toma como parametro un criterio de ordenamiento y el array de productos
+ * guarda en currentProductsArray lo que devuelve la funcion sortProducts
+ */
 function sortAndShowProducts(sortCriteria) {
   currentProductsArray = sortProducts(sortCriteria, currentProductsArray);
 
   showProductsList();
 }
 
-/* vamos a buscar la catid especifica que estableces en index al local storage y luego haces el llamado al json */
+/* vamos a buscar la catid especifica que estableces en index al local storage y 
+luego haces el llamado al json */
 function onContentLoaded(e) {
   const catId = localStorage.getItem("catID");
 
@@ -72,7 +80,7 @@ function onContentLoaded(e) {
       showProductsList();
     }
   });
-
+  /* botones de ordenado */
   document.getElementById("sortAsc").addEventListener("click", function () {
     sortAndShowProducts(ORDER_ASC_BY_PRICE);
   });
@@ -86,7 +94,11 @@ function onContentLoaded(e) {
     .addEventListener("click", function () {
       sortAndShowProducts(ORDER_BY_PROD_REL);
     });
-
+  /*boton de limpiar y filtro
+*establece los input de min y max como strings vacios y el valor de las variables de minPrice y maxPrice
+ como undefined
+* llama a showProductsList y como es undefined muestra todo el listado
+*/
   document
     .getElementById("clearRangeFilter")
     .addEventListener("click", function () {
@@ -99,6 +111,13 @@ function onContentLoaded(e) {
       showProductsList();
     });
 
+  /* botón de filtro
+   * trae el valor de los botones de precio minimo y maximo
+   * cuando se hace click guarda en minValue y maxValue los transforma en type of number.
+   * establece una condicion: si minValue es mayor o igual a cero minPrice pasa a ser minValue,
+   * else establece minPrice como undefined y el valor como string vacio.(Limpia los campos y no filtra nada)
+   * llama a showProductsList
+   * */
   document
     .getElementById("rangeFilterPrice")
     .addEventListener("click", function () {
