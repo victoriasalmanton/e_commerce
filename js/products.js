@@ -5,6 +5,9 @@ let currentProductsArray = [];
 let minPrice = undefined;
 let maxPrice = undefined;
 
+/* segun el criterio de ordenamiento y el array que en nuestro caso es la lista de productos compara los distintos
+precios y productos vendidos de la lista y si la comparacion entre el primer producto y el segundo es + 
+el segundo producto va primero en la lista; si es negativa el a a primero; si es 0 se mantienen en sus lugares */
 function sortProducts(criteria, array) {
   let result = [];
   if (criteria === ORDER_ASC_BY_PRICE) {
