@@ -15,6 +15,10 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body>
@@ -50,6 +54,29 @@
     <main>
       <div id="productsInfo-list-container" class="container"></div>
       <div id="productsComments-list-container" class="container"></div>
+      <div id="newProductsComments-list-container" class="container">
+        <h2 class="my-4 mb-2">Comentar</h2>
+        <div class="mb-3">
+          <label for="CommentTextarea" class="form-label">Tu opinion</label>
+          <textarea
+            class="form-control"
+            id="CommentTextarea"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="CommentScore" class="form-label">Tu puntuación</label>
+
+          <select class="form-select form-select-sm w-auto" id="CommentScore">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-dark">Enviar</button>
+      </div>
     </main>
     <footer class="text-muted">
       <div class="container">
