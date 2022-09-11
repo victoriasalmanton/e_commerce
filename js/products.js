@@ -20,6 +20,12 @@ function sortProducts(criteria, array) {
   return result;
 }
 
+//punto 3.1
+function setProductID(id) {
+  localStorage.setItem("productID", id);
+  window.location = "product-info.html";
+}
+
 /* 
 * el for toma currentProductsArray que es la categoria productos del resultado del json va mostrando 
 en pantalla los productos segun la condicion necesaria
@@ -38,7 +44,7 @@ function showProductsList() {
       (maxPrice === undefined || product.cost <= maxPrice)
     ) {
       htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <div onclick="setProductID(${product.id})" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="${product.image}" alt="product image" class="img-thumbnail">
