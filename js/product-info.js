@@ -1,3 +1,7 @@
+/*Agrega a htmlContentToAppend la informacion de los productos. En el html de product info agregamos 
+un div para ubicarlos que luego llamamos con getElementByID y mostramos en pantalla.
+El método map() convierto cada objeto del array de imagenes a un div de html para poder mostrarlas
+con el join paso el array a un string, para poder usarlo */
 function showProductInfo(product) {
   const htmlContentToAppend = `<h1 class= "mt-3 display-6"  >${
     product.name
@@ -61,7 +65,8 @@ function showCommentsInfo(comments) {
   document.getElementById("productsComments-list-container").innerHTML =
     htmlContentToAppend;
 }
-
+/* 3.2 solicitud al json para obtener la info de los productos. Luego llama a showProductInfo 
+pasandole por parametro el resultado del json*/
 function onContentLoaded(e) {
   const productId = localStorage.getItem("productID");
 
