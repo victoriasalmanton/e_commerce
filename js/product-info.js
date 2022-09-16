@@ -1,7 +1,7 @@
 /*Agrega a htmlContentToAppend la informacion de los productos. En el html de product info agregamos 
 un div para ubicarlos que luego llamamos con getElementByID y mostramos en pantalla.
-El método map() convierto cada objeto del array de imagenes a un div de html para poder mostrarlas
-con el join paso el array a un string, para poder usarlo */
+El método map() recorre el array de imagenes y agrega un div para cada una de ellas para mostrarlo en 
+pantalla con el join paso el array a un string, para poder usarlo */
 function showProductInfo(product) {
   const htmlContentToAppend = `<h1 class= "mt-3 display-6"  >${
     product.name
@@ -30,7 +30,8 @@ function showProductInfo(product) {
   document.getElementById("productsInfo-list-container").innerHTML =
     htmlContentToAppend;
 }
-
+/* define stars como string y establece 5 interaciones y se agregan estrellitas amarillas hasta 
+llegar al valor del score porque 0 seria el score 1 y el resto son estrellas sin color*/
 function starRating(score) {
   let stars = " ";
 
@@ -44,7 +45,7 @@ function starRating(score) {
 
   return stars;
 }
-
+/* con .map agrega a la lista el nombre de usuario la fecha de emision y concatena el puntaje de estrellitas*/
 function showCommentsInfo(comments) {
   const htmlContentToAppend = `<h2 class="my-4">Comentarios</h2>
   
@@ -77,7 +78,7 @@ function onContentLoaded(e) {
       showProductInfo(resultObj.data);
     }
   });
-
+  /*3.3 solicitud al json para obtener comentarios* y llama a showCommentsInfo */
   getJSONData(PRODUCT_INFO_COMMENTS_URL + productId + EXT_TYPE).then(function (
     resultObj
   ) {
