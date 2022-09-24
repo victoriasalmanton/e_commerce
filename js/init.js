@@ -50,9 +50,21 @@ if (!user) {
 
 /* si no tiene user va al login y deshacemos el cambio de nombre de archivos */
 
-const item = document.querySelector("#navbarNav .nav-item:last-child");
-item.innerHTML = `<span class="nav-link">${user}</span>`;
+function logOut() {
+  localStorage.removeItem("user");
+}
 
+const item = document.querySelector("#navbarNav .nav-item:last-child");
+item.innerHTML = `<div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+${user}
+</button>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+  <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+  <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+  <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesión</a></li>
+</ul>
+</div>`;
 /**
  * queremos llegar al elemento del menu donde iria el correo pero no tenemos id no podemos usar getElementById
  * no queremos editar todos los html

@@ -1,3 +1,8 @@
+function setProductRelatedID(id) {
+  localStorage.setItem("productID", id);
+  window.location = "product-info.html";
+}
+
 /*Agrega a htmlContentToAppend la informacion de los productos. En el html de product info agregamos 
 un div para ubicarlos que luego llamamos con getElementByID y mostramos en pantalla.
 El método map() recorre el array de imagenes y agrega un div para cada una de ellas para mostrarlo en 
@@ -25,8 +30,29 @@ function showProductInfo(product) {
     </div>
   `
     )
-    .join("")}  
-  `;
+    .join("")} </div> `;
+
+  /* ******* onclick */
+  const htmlRelatedProductsToAppend = `<h2 class= "mt-5 dislpay-6">Productos Relacionados</h2> 
+    <hr>
+    <div class="row"> 
+    ${product.relatedProducts
+      .map(
+        (relatedProduct) => `
+      <div class="col-6 col-md-3" onclick="setProductRelatedID(${relatedProduct.id})" >
+        <div class="card">
+          <img src="${relatedProduct.image}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">${relatedProduct.name}</p>
+          </div>
+        </div>
+      </div>
+    `
+      )
+      .join("")} </div> 
+ `;
+  document.getElementById("relatedProducts-list-container").innerHTML =
+    htmlRelatedProductsToAppend;
   document.getElementById("productsInfo-list-container").innerHTML =
     htmlContentToAppend;
 }
