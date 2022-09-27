@@ -32,7 +32,11 @@ function showProductInfo(product) {
     )
     .join("")} </div> `;
 
-  /* ******* onclick */
+  /* 4.1 En la misma funcion que muestra la info de productos creamos constante
+*agrega un titulo y va recorriendo todos los prductos relacionados de cada producto y los agrega a un div
+* SetProductRelatedID seteamos el id del producto relacionado para que cuando haga click 
+  se refresque la pagina y los muestre en pantalla con imagen y nombre 
+* innerHTML muestra en pantalla*/
   const htmlRelatedProductsToAppend = `<h2 class= "mt-5 dislpay-6">Productos Relacionados</h2> 
     <hr>
     <div class="row"> 

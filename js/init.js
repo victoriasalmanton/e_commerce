@@ -65,10 +65,9 @@ ${user}
   <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesión</a></li>
 </ul>
 </div>`;
-/**
- * queremos llegar al elemento del menu donde iria el correo pero no tenemos id no podemos usar getElementById
- * no queremos editar todos los html
- * Usamos querySelector que permite usar un selector css para llegar a un elemento.
- * span para agregarle estilo igual a los otros enlaces
- * innerHTML para cambiar el contenido y mostrar en pantalla.
- */
+/* 
+* 4.2 agregamos el codigo de dropdown de bootstrap y le pasamos el usuario
+y los respectivos enlaces a cada elemento de la lista desplegable.
+* al boton de cerrar sesion le agregamos un onclick y una llamada a la funcion logOut
+ que elimine el usuario guardado en localStorage y redirija login.html.
+*/
