@@ -62,9 +62,66 @@
       </div>
     </nav>
     <main>
-      <div class="container">
-        <div class="alert alert-danger text-center" role="alert">
-          <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="container px-5 mx-auto">
+        <div>
+          <h2 class="text-center p-4">Perfil</h2>
+        </div>
+        <div class="row justify-content-md mx-5">
+          <hr />
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">Primer nombre*</label>
+              <input type="text" class="form-control" id="firstName" />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="secondName" class="form-label">Segundo nombre</label>
+              <input type="" class="form-control" id="secondName" />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="firstSurname" class="form-label"
+                >Primer apellido*</label
+              >
+              <input type="text" class="form-control" id="firstSurname" />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="secondSurname" class="form-label"
+                >Segundo apellido</label
+              >
+              <input type="text" class="form-control" id="secondSurname" />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="email" class="form-label">E-mail</label>
+              <input type="text" class="form-control" id="email" />
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="contactNumber" class="form-label"
+                >Telefono de contacto*</label
+              >
+              <input
+                type="number"
+                max="999999999"
+                class="form-control mb-5"
+                id="contactNumber"
+              />
+            </div>
+          </div>
+          <hr />
+          <div>
+            <button type="button" class="btn btn-primary" id="saveChanges">
+              Guardar cambios
+            </button>
+          </div>
         </div>
       </div>
     </main>
@@ -91,3 +148,5 @@
     <script src="js/my-profile.js"></script>
   </body>
 </html>
+
+<!-- max lenght input type number-->
